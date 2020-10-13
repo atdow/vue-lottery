@@ -7,6 +7,7 @@
           <div
             v-for="(n, key) in 3"
             :key="n"
+            class="grid"
             :class="index === key ? `active` : ``"
           >
             <div class="wrapper">
@@ -17,17 +18,17 @@
           </div>
         </li>
         <li class="row">
-          <div :class="index === 7 ? 'active' : ''">
+          <div :class="index === 7 ? 'active' : ''" class="grid">
             <div class="wrapper">
               <img src="../assets/luck-icon.png" alt="" />
               <p>128金转</p>
             </div>
             <div class="mask"></div>
           </div>
-          <div class="getLuck" @click="startLottery">
+          <div class="getLuck grid" @click="startLottery">
             <p>立即<br />抽奖</p>
           </div>
-          <div :class="index === 3 ? 'active' : ''">
+          <div :class="index === 3 ? 'active' : ''" class="grid">
             <div class="wrapper">
               <img src="../assets/luck-icon.png" alt="" />
               <p>128金转</p>
@@ -39,6 +40,7 @@
           <div
             v-for="(n, key) in 3"
             :key="n"
+            class="grid"
             :class="index === 6 - key ? `active` : ``"
           >
             <div class="wrapper">
@@ -159,28 +161,33 @@ export default {
     li {
       height: 200px;
       display: flex;
-      > div {
+
+      .grid {
+        padding: 5px;
         flex: 1;
-        margin-right: px3rem(5);
         width: 200px;
         height: 100%;
         text-align: center;
         position: relative;
-        background: red;
-
+        box-sizing: border-box;
         .wrapper {
           width: 100%;
           height: 100%;
           margin: 0;
-          //   @include background-cover("background-grid.png");
+          // background: yellow;
+          // box-shadow: -10px 0px 10px #e2e203 inset,
+          //   12px -13px 28px -4px #e2e203 inset, 10px 0px 10px #e2e203 inset,
+          //   0px 10px 10px #e2e203 inset;
+          background: url("../assets/button.png") no-repeat;
+          background-size: 100% 100%;
+          // box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.2),
+          //   0 0 4px rgba(0, 0, 0, 0.1);
           img {
             width: 100px;
             height: 100px;
             vertical-align: middle;
-            margin-top: px3rem(8);
           }
         }
-
         .mask {
           position: absolute;
           top: 0;
@@ -189,7 +196,7 @@ export default {
           height: 100%;
           opacity: 0.5;
           border-radius: px3rem(10);
-          background-color: #000;
+          background-color: gold;
           display: none;
         }
       }
